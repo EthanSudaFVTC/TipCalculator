@@ -2,22 +2,34 @@
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
 
     public MainPage()
     {
         InitializeComponent();
+        Title = "Tip Calculator";
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private void Fifteen_OnClicked(object sender, EventArgs e)
     {
-        count++;
+        double dblBill, dblTip;
+        Double.TryParse(txtBill.Text, out dblBill);
+        dblTip = dblBill * 1.15;
+        txtTip.Text = (dblTip).ToString();
+    }
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
+    private void Twenty_OnClicked(object sender, EventArgs e)
+    {
+        double dblBill, dblTip;
+        Double.TryParse(txtBill.Text, out dblBill);
+        dblTip = dblBill * 1.20;
+        txtTip.Text = (dblTip).ToString();
+    }
 
-        SemanticScreenReader.Announce(CounterBtn.Text);
+    private void TwentyFive_OnClicked(object sender, EventArgs e)
+    {
+        double dblBill, dblTip;
+        Double.TryParse(txtBill.Text, out dblBill);
+        dblTip = dblBill * 1.25;
+        txtTip.Text = (dblTip).ToString(); 
     }
 }
